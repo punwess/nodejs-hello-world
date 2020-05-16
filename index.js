@@ -1,13 +1,12 @@
-var http = require('http');
-
-var server = http.createServer(function(request, response) {
-
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Hello World!");
-
+//importing node framework
+var express = require('express');
+ 
+var app = express();
+//Respond with "hello world" for requests that hit our root "/"
+app.get('/', function (req, res) {
+ res.send('hello world');
 });
-
-var port = 80;
-server.listen(port);
-
-console.log("Server running at http://localhost:%d", port);
+//listen to port 3000 by default
+app.listen(process.env.PORT);
+console.log("listen on port:",process.env.PORT)
+module.exports = app;1
